@@ -1,8 +1,17 @@
-const display = document.querySelector('.display');
-const buttons = document.querySelectorAll('button');
+let display = document.getElementById('display');
 
-buttons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        // Handle button clicks, calculation logic, and displaying results in 'display'
-    });
-});
+function appendToDisplay(value) {
+    display.value += value;
+}
+
+function clearDisplay() {
+    display.value = '';
+}
+
+function calculate() {
+    try {
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
